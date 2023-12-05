@@ -1,0 +1,74 @@
+body {
+  font-family: "Poppins";
+  background-color: rgb(55, 56, 57);
+}
+
+.judul {
+text-align: center;
+}
+
+.judul h2 {
+  font-size: 3rem;
+  font-weight: 700;
+  color: #b17941;
+}
+
+.judul h2 span {
+color: #fff;
+}
+
+table {
+ margin: auto;
+ width: 80%;
+ align-items: center;
+}
+
+th, td {
+  font-family: "Poppins";
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+td {
+  font-size: 1rem;
+  color: #fff;
+}
+
+th {
+  background-color: #fff;
+  text-align: center;
+  font-size: 1.2rem;
+}
+
+button {
+  padding: 5px 10px;
+}
+
+/* Gaya untuk tombol edit (hijau) */
+.edit-button {
+  cursor: pointer;
+  background-color: green;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  margin-left: 5rem;
+}
+
+/* Gaya untuk tombol hapus (merah) */
+.delete-button {
+  cursor: pointer;
+  background-color: red;
+  color: white;
+  border: none;
+  border-radius: 5px;
+
+}
+
+.tambah {
+margin-left: 66rem;
+border-radius: 5px;
+padding: 6px 12px;
+border: none;
+margin-bottom: 1rem;
+cursor: pointer;
+}

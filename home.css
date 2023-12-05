@@ -1,0 +1,223 @@
+:root {
+    --primary: #b17941;
+    --bg: rgb(55, 56, 57);
+  }
+  
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: none;
+    text-decoration: none;
+  }
+  
+  body {
+    font-family: "Poppins";
+    background-color: rgb(55, 56, 57);
+    color: #fff;
+  }
+  
+  /* Jenis Kopi */
+  .jeniskopi {
+    padding: 2rem;
+    text-align: center;
+    font-size: 1.9rem;
+    font-weight: 400;
+    color: #fff;
+  }
+  
+  .jeniskopi h2 span {
+    color: #b17941;
+  }
+  
+  .container {
+    display: flex;
+    gap: 2rem;
+    justify-content: space-around;
+    margin-top: 2rem;
+  }
+  
+  .card-1 img {
+    max-width: 20rem;
+    border-radius: 8px;
+  }
+  
+  .card-2 img {
+    max-width: 20rem;
+    border-radius: 8px;
+  }
+  
+  .card-3 img {
+    max-width: 20rem;
+    border-radius: 8px;
+  }
+  
+  .btn_jeniskopi {
+    background-color: rgb(183, 141, 112);
+    color: #fff;
+    padding: 1rem 2rem;
+    border-radius: 8px;
+    width: 61%;
+    margin-top: 0.7rem;
+    cursor: pointer;
+  }
+  
+  .btn_jeniskopi:hover {
+    background-color: #b17941;
+  }
+  
+  /* Resep Olahan Kopi */
+  .isi {
+    font-size: 1.8rem;
+    font-weight: 400;
+    text-align: center;
+    color: #fff; /* Warna teks */
+    margin-top: 4rem;
+  }
+  
+  .row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  
+  .resep-img img {
+    max-width: 32rem;
+    border-radius: 8px;
+    margin-left: 5rem;
+    margin-top: 3rem;
+  }
+  
+  .resep-text {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .resep-text p {
+    font-size: 1.3rem;
+    font-weight: 200;
+    gap: 1rem;
+    margin-right: 15.2rem;
+  }
+  
+  .btn_resep {
+    margin-top: 3rem;
+    padding: 1rem 2rem;
+    background-color: rgb(183, 141, 112);
+    color: #fff;
+    border-radius: 8px;
+    width: 24%;
+    cursor: pointer;
+    text-align: center;
+  }
+  
+  .btn_resep:hover {
+    background-color: #b17941;
+  }
+  
+  /* Data Petani */
+  .datapetani {
+    margin-bottom: 3rem;
+    padding: 6rem;
+    text-align: center;
+    font-size: 1.9rem;
+    font-weight: 400;
+  }
+  
+  .datapetani h2 {
+    color: #b17941;
+    margin-bottom: 2rem;
+  }
+  
+  .datapetani h2 span {
+    color: #fff;
+  }
+  
+  .data {
+    font-size: 1.9rem;
+    font-weight: 200;
+    display: flex;
+    gap: 7rem;
+    justify-content: space-around;
+    margin-top: 3rem;
+  }
+  
+  .data h6 {
+    color: #fff;
+    font-size: 1.2rem;
+    font-weight: 900;
+  }
+  
+  .c1 img {
+    max-width: 20rem;
+    border-radius: 8px;
+  }
+  
+  .c2 img {
+    max-width: 20rem;
+    border-radius: 8px;
+  }
+  
+  .c3 img {
+    max-width: 20rem;
+    border-radius: 8px;
+  }
+  
+  .btn_datapetani {
+    background-color: rgb(183, 141, 112);
+    color: #fff;
+    padding: 1rem 2rem;
+    border-radius: 8px;
+    width: 69%;
+    margin-top: 0.7rem;
+  }
+  
+  .btn_datapetani:hover {
+    background-color: #b17941;
+  }
+  
+  /* Laptop */
+  @media (max-width: 1920px) {
+    html {
+      font-size: 75%;
+    }
+  }
+  
+  /* Tablet */
+  @media (max-width: 768px) {
+    html {
+      font-size: 68%;
+    }
+    .container {
+      font-size: 1.9rem;
+      font-weight: 200;
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+      justify-content: space-around;
+      margin-top: 3rem;
+    }
+  
+    .card-1 img {
+      max-width: 20rem;
+    }
+  
+    .card-2 img {
+      max-width: 20rem;
+    }
+  
+    .card-3 img {
+      max-width: 20rem;
+    }
+  
+    .btn_jeniskopi {
+      background-color: rgb(183, 141, 112);
+      color: #fff;
+      padding: 1rem 2rem;
+      border-radius: 8px;
+      width: 25%;
+      margin-top: 0.7rem;
+    }
+  }
+  
