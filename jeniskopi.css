@@ -1,74 +1,117 @@
 body {
-  font-family: "Poppins";
-  background-color: rgb(55, 56, 57);
+    font-family: "Poppins";
+    background-color: rgb(55, 56, 57);
+    margin: 0; /* Menambahkan margin: 0; agar body tidak memiliki margin default */
+    display: flex;
+    align-items: center;
+    flex-direction: column;
 }
 
 .judul {
-text-align: center;
+    text-align: center;
+    margin-top: 20px; /* Menambahkan margin-top untuk memisahkan judul dari bagian atas layar */
 }
 
 .judul h2 {
-  font-size: 3rem;
-  font-weight: 700;
-  color: #b17941;
+    font-size: 3rem;
+    font-weight: 700;
+    color: #b17941;
+    margin: 0; /* Menambahkan margin: 0; agar h2 tidak memiliki margin default */
 }
 
 .judul h2 span {
-color: #fff;
+    color: #fff;
+}
+
+.add {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    width: 80%;
+    margin:  20px; /* Menambahkan margin agar terpisah dari judul dan tabel */
+    padding: 0px 20px 0px 20px; /* Menambahkan padding agar terlihat lebih rapi */
+    
+}
+
+.tambah, .tombol-cari {
+    padding: 8px 16px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    margin: 5px;
+}
+
+.keyword {
+    padding: 8px;
+    border-radius: 5px;
+    border: none;
+    margin-right: 10px;
+}
+
+.tambah {
+    color: #fff;
+    background-color: green;
 }
 
 table {
- margin: auto;
- width: 80%;
- align-items: center;
+    margin: auto;
+    width: 80%;
 }
 
 th, td {
-  font-family: "Poppins";
-  border: 1px solid #ddd;
-  padding: 8px;
+    font-family: "Poppins";
+    border: 1px solid #ddd;
+    padding: 12px; /* Menambahkan padding agar lebih mudah dibaca */
 }
 
 td {
-  font-size: 1rem;
-  color: #fff;
+    font-size: 1rem;
+    color: #fff;
 }
 
 th {
-  background-color: #fff;
-  text-align: center;
-  font-size: 1.2rem;
+    background-color: #fff;
+    text-align: center;
+    font-size: 1.2rem;
 }
 
-button {
-  padding: 5px 10px;
-}
-
-/* Gaya untuk tombol edit (hijau) */
 .edit-button {
-  cursor: pointer;
-  background-color: green;
-  color: white;
-  border: none;
+  padding: 8px 16px;
   border-radius: 5px;
-  margin-left: 5rem;
+  border: none;
+  cursor: pointer;
+  margin: 5px;
+  color: #fff;
+  background-color: blue;
 }
 
 /* Gaya untuk tombol hapus (merah) */
 .delete-button {
-  cursor: pointer;
-  background-color: red;
-  color: white;
-  border: none;
+  padding: 8px 16px;
   border-radius: 5px;
-
+  border: none;
+  cursor: pointer;
+  margin: 5px;
+  background-color: red;
+  color: #fff;
+}
+.kembali {
+  position: absolute;
+  top: 20px;
+  left: 20px;
 }
 
-.tambah {
-margin-left: 66rem;
-border-radius: 5px;
-padding: 6px 12px;
-border: none;
-margin-bottom: 1rem;
-cursor: pointer;
+#back-icon {
+  text-decoration: none;
+  color: white;
+  display: flex;
+  align-items: center;
+}
+
+#back-icon img {
+  margin-right: 5px;
+}
+
+.aksi{
+    width: 15%;
 }

@@ -1,91 +1,117 @@
 body {
-    background-color: rgb(55, 56, 57);
     font-family: "Poppins";
+    background-color: rgb(55, 56, 57);
+    margin: 0; /* Menambahkan margin: 0; agar body tidak memiliki margin default */
     display: flex;
-    justify-content: center;
     align-items: center;
-    height: 100vh;
-    margin: 0;
-  }
-  
-  .judul h2{
-    color: white;
-    text-align: center;
-  }
-
- .recipe-info h3{
-    color: black;
-  }
-
-.recipe-info p{
-    color: black;
+    flex-direction: column;
 }
-  .admin-container {
-    max-width: 800px;
-    padding: 20px;
-    background-color: #fff;
-    /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); */
-  }
 
-  .admin-container h2{
+.judul {
     text-align: center;
+    margin-top: 20px; /* Menambahkan margin-top untuk memisahkan judul dari bagian atas layar */
+}
 
-  }
-  
-  .recipe-list {
-    list-style: none;
-    padding: 0;
-  }
-  
-  .recipe-item {
+.judul h2 {
+    font-size: 3rem;
+    font-weight: 700;
+    color: #b17941;
+    margin: 0; /* Menambahkan margin: 0; agar h2 tidak memiliki margin default */
+}
+
+.judul h2 span {
+    color: #fff;
+}
+
+.add {
     display: flex;
-    margin-bottom: 20px;
-    padding: 15px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    background-color: #f9f9f9;
-  }
-  
-  .recipe-item img {
-    max-width: 100px;
-    height: auto;
-    margin-right: 20px;
-  }
-  
-  .recipe-info {
-    flex-grow: 1;
-  }
-  
-  .recipe-info h3 {
-    margin-bottom: 10px;
-  }
-  
-  .action-buttons button {
-    padding: 8px 12px;
-    margin-left: 10px;
-    cursor: pointer;
-    border-radius: 5px;
-  }
-  
-  .edit-button {
-    background-color: #4CAF50; /* Hijau */
-    color: white;
-    border: none;
-  }
-  
-  .delete-button {
-    background-color: red; /* Merah */
-    color: white;
-    border: none;
-  }
+    justify-content: flex-end;
+    align-items: center;
+    width: 80%;
+    margin:  20px; /* Menambahkan margin agar terpisah dari judul dan tabel */
+    padding: 0px 20px 0px 20px; /* Menambahkan padding agar terlihat lebih rapi */
+    
+}
 
-   
-  .tambah {
-    margin-left: 66rem;
+.tambah, .tombol-cari {
+    padding: 8px 16px;
     border-radius: 5px;
-    padding: 6px 12px;
     border: none;
-    margin-bottom: 1rem;
     cursor: pointer;
-  }
-  
+    margin: 5px;
+}
+
+.keyword {
+    padding: 8px;
+    border-radius: 5px;
+    border: none;
+    margin-right: 10px;
+}
+
+.tambah {
+    color: #fff;
+    background-color: green;
+}
+
+table {
+    margin: auto;
+    width: 80%;
+}
+
+th, td {
+    font-family: "Poppins";
+    border: 1px solid #ddd;
+    padding: 12px; /* Menambahkan padding agar lebih mudah dibaca */
+}
+
+td {
+    font-size: 1rem;
+    color: #fff;
+}
+
+th {
+    background-color: #fff;
+    text-align: center;
+    font-size: 1.2rem;
+}
+
+.edit-button {
+  padding: 8px 16px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  margin: 5px;
+  color: #fff;
+  background-color: blue;
+}
+
+/* Gaya untuk tombol hapus (merah) */
+.delete-button {
+  padding: 8px 16px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  margin: 5px;
+  background-color: red;
+  color: #fff;
+}
+.kembali {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+}
+
+#back-icon {
+  text-decoration: none;
+  color: white;
+  display: flex;
+  align-items: center;
+}
+
+#back-icon img {
+  margin-right: 5px;
+}
+
+.aksi{
+    width: 15%;
+}

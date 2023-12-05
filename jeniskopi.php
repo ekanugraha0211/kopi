@@ -7,11 +7,11 @@ if (!isset($_SESSION['login'])) {
 }
 
 require 'functions.php';
-$petani = query("SELECT * FROM kopi;");
+$jenis = query("SELECT * FROM kopi;");
 
 // ketika tombol cari diklik
 if (isset($_POST['cari'])) {
-     $petani = cari($_POST['keyword']);
+     $jenis = cari($_POST['keyword']);
 }
 
 ?>
@@ -21,20 +21,18 @@ if (isset($_POST['cari'])) {
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Data Kopi</title>
-  <link rel="stylesheet" href="datapetani.css">
-  <!-- Feather Icon -->
-  <!-- <script src="https://unpkg.com/feather-icons"></script> -->
- <!-- Feather Icon -->
+  <link rel="stylesheet" href="jeniskopi.css">
+  
+  </style>
  <script src="https://unpkg.com/feather-icons"></script>
 </head>
 <body>
 <div class="kembali">
-   <a href="#" id="back-icon"><img src="chevron-left.svg"></a>
-</div>icon"><i data-feather="chevron-left"></i></a>
- </div>
-<div class="judul">
-<h2>Jenis<span>Kopi</span></h2>
+   <a href="index.php" id="back-icon"><img src="chevron-left.svg">Kembali</a>
 </div>
+<div class="judul">
+<h2>Jenis <span>Kopi</span></h2>
+</div>  
 <div class="add">
     <button class="tambah" onclick="addRow()">Tambah</button>
     <input type="text" name="keyword" size="40" placeholder="Cari dengan Nama atau Kode Pesanan" autocomplete="off" autofocus class="keyword" id="search">
@@ -52,26 +50,25 @@ if (isset($_POST['cari'])) {
     </tr>
   </thead>
   <tbody id="row-contain">
-        <?php if (empty($petani)) : ?>
+        <?php if (empty($jenis)) : ?>
             <tr>
                   <td colspan="4">
-                      <p style="color: red; font-style: italic;">Data petani tidak ditemukan!</p>
+                      <p style="color: red; font-style: italic;">Data jenis kopi tidak ditemukan!</p>
                   </td>
             </tr>
         <?php endif; ?>
 
         <?php $i = 1;
-        foreach ($petani as $p) : ?>
+        foreach ($jenis as $p) : ?>
             <tr>
                   <td><?= $i++; ?></td>
                   <td><img src="img/<?= $p['gambar_kopi']; ?>" width="60"></td>
                   <td><?= $p['nama_kopi']; ?></td>
                   <td><?= $p['asal']; ?></td>
                   <td><?= $p['deskripsi']; ?></td>
-                  <td>
+                  <td class="aksi">
                   <button class="edit-button" onclick="editRow(1)">Edit</button>
-                  <button class="delete-button" onclick="deleteRow(1)">Hapus</button>
-                      <!-- <a href="detail.php?id=<?= $p['id']; ?>">lihat detail</a> -->
+                  <a<a class="delete-button" href="hapus_jenis.php?id=<?= $p['id_kopi']; ?>">Hapus</a>
                   </td>
             </tr>
         <?php endforeach; ?>

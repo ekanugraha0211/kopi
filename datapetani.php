@@ -22,12 +22,7 @@ if (isset($_POST['cari'])) {
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Data Kopi</title>
   <link rel="stylesheet" href="curdstyle.css">
-  
-  
-
-  <!-- Feather Icon -->
-  <!-- <script src="https://unpkg.com/feather-icons"></script> -->
- <!-- Feather Icon -->
+  <style></style>
  <script src="https://unpkg.com/feather-icons"></script>
 </head>
 <body>
@@ -65,6 +60,7 @@ if (isset($_POST['cari'])) {
 
         <?php $i = 1;
         foreach ($petani as $p) : ?>
+        
             <tr>
                   <td><?= $i++; ?></td>
                   <!-- <td><img src="img/<?= $p['gambar']; ?>" width="60"></td> -->
@@ -74,9 +70,9 @@ if (isset($_POST['cari'])) {
                   <td><?= $p['nama_kopi']; ?></td>
                   <td>
                   <button class="edit-button" onclick="editRow(1)">Edit</button>
-                  <a class="delete-button" href="hapus.php?id=<?php echo $data['id']; ?>">Hapus</a>
+                  <a class="delete-button" href="hapus_petani.php?id=<?= $p['id_petani']; ?>">Hapus</a>
                   <!-- <button class="delete-button" onclick="deleteRow(1)">Hapus</button> -->
-                      <!-- <a href="detail.php?id=<?= $p['id']; ?>">lihat detail</a> -->
+                   
                   </td>
             </tr>
         <?php endforeach; ?>

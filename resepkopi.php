@@ -25,7 +25,7 @@ if (isset($_POST['cari'])) {
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Data Kopi</title>
-  <link rel="stylesheet" href="datapetani.css">
+  <link rel="stylesheet" href="resepkopi.css">
   <!-- Feather Icon -->
   <!-- <script src="https://unpkg.com/feather-icons"></script> -->
  <!-- Feather Icon -->
@@ -33,11 +33,10 @@ if (isset($_POST['cari'])) {
 </head>
 <body>
 <div class="kembali">
-   <a href="#" id="back-icon"><img src="chevron-left.svg"></a>
-</div>icon"><i data-feather="chevron-left"></i></a>
- </div>
+   <a href="index.php" id="back-icon"><img src="chevron-left.svg">Kembali</a>
+</div>
 <div class="judul">
-<h2>Jenis<span>Kopi</span></h2>
+<h2>Resep<span>Kopi</span></h2>
 </div>
 <div class="add">
   <button class="tambah" onclick="addRow()">Tambah</button>
@@ -70,11 +69,11 @@ if (isset($_POST['cari'])) {
                   <td><?= $i++; ?></td>
                   <!-- <td><img src="img/<?= $p['gambar_kopi']; ?>" width="60"></td> -->
                   <td><?= $p['nama_resep']; ?></td>
-                  <td><?= $p['nama_bahan']; ?></td>
+                  <td><?= $p['nama_bahan']; ?></td>   
                   <td><?= $p['cara']; ?></td>
-                  <td>
+                  <td class="aksi">
                   <button class="edit-button" onclick="editRow(1)">Edit</button>
-                  <button class="delete-button" onclick="deleteRow(1)">Hapus</button>
+                  <a class="delete-button" href="hapus_resep.php?id=<?= $p['id_detail_resep']; ?>">Hapus</an>
                       <!-- <a href="detail.php?id=<?= $p['id']; ?>">lihat detail</a> -->
                   </td>
             </tr>

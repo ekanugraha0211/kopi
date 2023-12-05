@@ -1,17 +1,18 @@
 <?php
 // require 'functions.php';
 
-function koneksi()
-{
-  return mysqli_connect('', 'root', '', 'db_ngopinow');
-}
+// function koneksi()
+// {
+//   return mysqli_connect('', 'root', '', 'db_ngopinow');
+// }
 
+$conn = mysqli_connect('', 'root', '', 'db_ngopinow');
 
 
 function queryAll($query)
 {
-  $conn = koneksi();
-
+//   $conn = koneksi();
+  global $conn;
   $result = mysqli_query($conn, $query);
 
   // // jika hasilnya hanya 1 data
@@ -29,8 +30,8 @@ function queryAll($query)
 
 function query($query)
 {
-  $conn = koneksi();
-
+//   $conn = koneksi();
+  global $conn;
   $result = mysqli_query($conn, $query);
 
   // jika hasilnya hanya 1 data
@@ -102,8 +103,8 @@ function upload()
 
 function tambah_petani($data)
 {
-  $conn = koneksi();
-
+//   $conn = koneksi();
+  global $conn;
   $nama = htmlspecialchars($data['nama_petani']);
   $telp = htmlspecialchars($data['no_hp']);
   $lama_bermain = htmlspecialchars($data['asal']);
@@ -132,8 +133,8 @@ function tambah_petani($data)
 
 function hapus_elpha($id)
 {
-  $conn = koneksi();
-
+//   $conn = koneksi();
+  global $conn;
   // menghapus gambar di folder img
   $p = query("SELECT * FROM pel_elpha WHERE id = $id");
   if ($p['gambar'] != 'nophoto.jpg') {
@@ -146,8 +147,8 @@ function hapus_elpha($id)
 
 function ubah_elpha($data)
 {
-  $conn = koneksi();
-
+//   $conn = koneksi();
+  global $conn;
   $id = $data['id'];
   $nama = htmlspecialchars($data['nama']);
   $telp = htmlspecialchars($data['telp']);
@@ -178,8 +179,8 @@ function ubah_elpha($data)
 
 function login($data)
 {
-  $conn = koneksi();
-
+//   $conn = koneksi();
+  global $conn;
   $username = htmlspecialchars($data['username']);
   $password = htmlspecialchars($data['password']);
 
@@ -203,8 +204,8 @@ function login($data)
 
 function registrasi($data)
 {
-  $conn = koneksi();
-
+//   $conn = koneksi();
+  global $conn;
   $nama = htmlspecialchars(strtolower($data['nama']));
   $email = htmlspecialchars(strtolower($data['email']));
   $tglLahir = ($data['tglLahir']);
