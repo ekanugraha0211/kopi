@@ -6,7 +6,7 @@ if (isset($_GET['id']) && !empty($_GET['id'])) {
     $id = $_GET['id'];
 
     // Gantilah fungsi mysql_query dengan mysqli_query
-    mysqli_query($conn, "DELETE petani, kopi FROM petani INNER JOIN kopi ON petani.id_kopi = kopi.id_kopi WHERE petani.id_petani='$id'") or die(mysqli_error($conn));
+    mysqli_query($conn, "DELETE FROM petani  WHERE id_petani='$id'") or die(mysqli_error($conn));
 
     // header("location:index.php?pesan=hapus");
     echo "

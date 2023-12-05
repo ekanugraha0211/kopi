@@ -1,10 +1,10 @@
 <?php
-session_start();
+// session_start();
 
-if (!isset($_SESSION['login'])) {
-     header("Location: login.php");
-     exit;
-}
+// if (!isset($_SESSION['login'])) {
+//      header("Location: login.php");
+//      exit;
+// }
 
 require 'functions.php';
 $jenis = query("SELECT * FROM kopi;");
@@ -68,7 +68,7 @@ if (isset($_POST['cari'])) {
                   <td><?= $p['deskripsi']; ?></td>
                   <td class="aksi">
                   <button class="edit-button" onclick="editRow(1)">Edit</button>
-                  <a<a class="delete-button" href="hapus_jenis.php?id=<?= $p['id_kopi']; ?>">Hapus</a>
+                    <a class="delete-button" href="hapus_jenis.php?id=<?= $p['id_kopi']; ?>">Hapus</a>
                   </td>
             </tr>
         <?php endforeach; ?>

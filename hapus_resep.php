@@ -6,10 +6,7 @@ if (isset($_GET['id']) && !empty($_GET['id'])) {
     $id = $_GET['id'];
 
     // Gantilah fungsi mysql_query dengan mysqli_query
-    mysqli_query($conn, "DELETE bahan.*, resep.*
-    FROM detail_resep
-    JOIN bahan ON detail_resep.id_bahan = bahan.id_bahan
-    JOIN resep ON detail_resep.id_resep = resep.id_resep where id_detail_resep='$id'") or die(mysqli_error($conn));
+    mysqli_query($conn, "DELETE FROM detail_resep where id_detail_resep='$id'") or die(mysqli_error($conn));
 
     // header("location:index.php?pesan=hapus");
     echo "

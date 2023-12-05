@@ -1,13 +1,13 @@
 <?php
-session_start();
+// session_start();
 
-if (!isset($_SESSION['login'])) {
-     header("Location: login.php");
-     exit;
-}
+// if (!isset($_SESSION['login'])) {
+//      header("Location: login.php");
+//      exit;
+// }
 
 require 'functions.php';
-$petani = query("SELECT bahan.*, resep.*
+$petani = query("SELECT *
 FROM detail_resep
 JOIN bahan ON detail_resep.id_bahan = bahan.id_bahan
 JOIN resep ON detail_resep.id_resep = resep.id_resep;
