@@ -5,13 +5,13 @@ require 'functions.php';
 // Check if the form is submitted
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Get data from POST request
-    $nama = $_POST['namaPetani'];
-    $noHP = $_POST['noHPPetani'];
-    $asal = $_POST['asalPetani'];
+    $namaKopi = $_POST['namaKopi'];
+    $asalKopi = $_POST['asalKopi'];
+    $deskripsi = $_POST['deskripsi'];
 
     // Handle image upload
     $targetDir = "admin/tampilan/foto/"; // ubah ke directory tujuan
-    $targetFile = $targetDir . basename($_FILES["gambarPetani"]["name"]);
+    $targetFile = $targetDir . basename($_FILES["gambarKopi"]["name"]);
     $uploadOk = 1;
     $imageFileType = strtolower(pathinfo($targetFile, PATHINFO_EXTENSION));
 
@@ -38,7 +38,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     // Check file size (adjust the size as needed)
-    if ($_FILES["gambarPetani"]["size"] > 500000) {
+    if ($_FILES["gambarKopi"]["size"] > 500000) {
       echo "
       <script>
           alert('File terlalu besar')
@@ -47,16 +47,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     // Allow only certain file formats
-    if (
-        $imageFileType != "jpg" && $imageFileType != "png" &&
-        $imageFileType != "jpeg" && $imageFileType != "gif"
-    ) {
-      echo "
-      <script>
-          alert('Gunakan format jpg, png, jpeg atau gif')
-      </script>";
-        $uploadOk = 0;
-    }
+    // if (
+    //     $imageFileType != "jpg" && $imageFileType != "png" &&
+    //     $imageFileType != "jpeg" && $imageFileType != "gif"
+    // ) {
+    //   echo "
+    //   <script>
+    //       alert('Gunakan format jpg, png, jpeg atau gif')
+    //   </script>";
+    //     $uploadOk = 0;
+    // }
 
     // Check if $uploadOk is set to 0 by an error
     // if ($uploadOk == 0) {
@@ -74,13 +74,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // }
 
     // Prepare and execute SQL query
-    $sql = "INSERT INTO petani (nama_petani, no_hp, asal, gambar_petani) VALUES ('$nama', '$noHP', '$asal', '$targetFile')";
+    $sql = "INSERT INTO kopi (nama_kopi, asal, deskripsi, gambar_kopi) VALUES ('$namaKopi', '$asalKopi', '$deskripsi', '$targetFile')";
 
     if ($conn->query($sql) === TRUE) {
         echo "
         <script>
             alert('data berhasil ditambahkan')
-            document.location.href = 'datapetani.php'
+            document.location.href = 'jeniskopi.php'
         </script>";
     } else {
         echo "Error: " . $sql . "<br>" . $conn->error;
@@ -190,33 +190,35 @@ $conn->close();
   </head>
   <body>
   <div class="kembali">
-   <a href="datapetani.php" id="back-icon"><img src="chevron-left.svg">Kembali</a>
+   <a href="jeniskopi.php" id="back-icon"><img src="chevron-left.svg">Kembali</a>
 </div>
     <section class="container">
     <<div class="judul">
-<h2>Tambah <span>Petani</span></h2>
+<h2>Tambah <span>Jenis Kopi</span></h2>
 </div>
-<form action="" method="post" enctype="multipart/form-data">
+<form action="" method="post">
+        <!-- Add a hidden input field to carry the idPetani value -->
+        <input type="hidden" name="idKopi" value="<?php echo $idKopi; ?>">
         <div class="content">
             <h5>Nama</h5>
-            <input type="text" name="namaPetani" />
-        </div>
-        <div class="content">
-            <h5>No HP</h5>
-            <input type="text" name="noHPPetani" />
+            <input type="text" name="namaKopi" />
         </div>
         <div class="content">
             <h5>Asal</h5>
-            <input type="text" name="asalPetani" />
+            <input type="text" name="asalKopi"/>
+        </div>
+        <div class="content">
+            <h5>Deskripsi</h5>
+            <input type="text" name="deskripsi"/>
         </div>
         <div class="content">
             <h5>Foto</h5>
-            <input type="file" name="gambarPetani" accept="image/*">
+            <input type="file" name="gambarPetani" accept="image/*"/>
         </div>
         <div class="content">
             <button id="save" type="submit">Simpan</button>
         </div>
-    </form>    
+    </form>  
 
 
 

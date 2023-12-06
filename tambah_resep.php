@@ -5,82 +5,19 @@ require 'functions.php';
 // Check if the form is submitted
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Get data from POST request
-    $nama = $_POST['namaPetani'];
-    $noHP = $_POST['noHPPetani'];
-    $asal = $_POST['asalPetani'];
+    $namaResep = $_POST['namaResep'];
+    $cara = $_POST['cara'];
+    $bahan = $_POST['bahan'];
 
-    // Handle image upload
-    $targetDir = "admin/tampilan/foto/"; // ubah ke directory tujuan
-    $targetFile = $targetDir . basename($_FILES["gambarPetani"]["name"]);
-    $uploadOk = 1;
-    $imageFileType = strtolower(pathinfo($targetFile, PATHINFO_EXTENSION));
-
-    // Check if the file is an image
-    // $check = getimagesize($_FILES["gambarPetani"]["tmp_name"]);
-    // if ($check !== false) {
-    //     echo "File is an image - " . $check["mime"] . ".";
-    //     $uploadOk = 1;
-    // } else {
-    //   echo "
-    //   <script>
-    //       alert('File bukan foto')
-    //   </script>";
-    //     $uploadOk = 0;
-    // }
-
-    // Check if the file already exists
-    if (file_exists($targetFile)) {
-      echo "
-      <script>
-          alert('Foto sudah ada')
-      </script>";
-        $uploadOk = 0;
-    }
-
-    // Check file size (adjust the size as needed)
-    if ($_FILES["gambarPetani"]["size"] > 500000) {
-      echo "
-      <script>
-          alert('File terlalu besar')
-      </script>";
-        $uploadOk = 0;
-    }
-
-    // Allow only certain file formats
-    if (
-        $imageFileType != "jpg" && $imageFileType != "png" &&
-        $imageFileType != "jpeg" && $imageFileType != "gif"
-    ) {
-      echo "
-      <script>
-          alert('Gunakan format jpg, png, jpeg atau gif')
-      </script>";
-        $uploadOk = 0;
-    }
-
-    // Check if $uploadOk is set to 0 by an error
-    // if ($uploadOk == 0) {
-    //   echo "
-    //   <script>
-    //       alert('Belum menambahkan foto')
-    //   </script>";
-    // } else {
-    //     // Move the uploaded file to the specified directory
-    //     if (move_uploaded_file($_FILES["gambarPetani"]["tmp_name"], $targetFile)) {
-    //         echo "The file " . basename($_FILES["gambarPetani"]["name"]) . " has been uploaded.";
-    //     } else {
-    //         echo "Sorry, there was an error uploading your file.";
-    //     }
-    // }
-
+    
     // Prepare and execute SQL query
-    $sql = "INSERT INTO petani (nama_petani, no_hp, asal, gambar_petani) VALUES ('$nama', '$noHP', '$asal', '$targetFile')";
+    $sql = "INSERT INTO resep (nama_resep, cara, bahan) VALUES ('$namaResep', '$cara', '$bahan')";
 
     if ($conn->query($sql) === TRUE) {
         echo "
         <script>
             alert('data berhasil ditambahkan')
-            document.location.href = 'datapetani.php'
+            document.location.href = 'resepkopi.php'
         </script>";
     } else {
         echo "Error: " . $sql . "<br>" . $conn->error;
@@ -186,32 +123,28 @@ $conn->close();
   margin-right: 5px;
 }
     </style>
-    <title>Tugas Akhir</title>
+    <title>Data Kopi</title>
   </head>
   <body>
   <div class="kembali">
-   <a href="datapetani.php" id="back-icon"><img src="chevron-left.svg">Kembali</a>
+   <a href="resepkopi.php" id="back-icon"><img src="chevron-left.svg">Kembali</a>
 </div>
     <section class="container">
     <<div class="judul">
-<h2>Tambah <span>Petani</span></h2>
+<h2>Tambah <span>Resep</span></h2>
 </div>
 <form action="" method="post" enctype="multipart/form-data">
         <div class="content">
             <h5>Nama</h5>
-            <input type="text" name="namaPetani" />
+            <input type="text" name="namaResep" />
         </div>
         <div class="content">
-            <h5>No HP</h5>
-            <input type="text" name="noHPPetani" />
+            <h5>Tata Cara</h5>
+            <input type="text" name="cara" />
         </div>
         <div class="content">
-            <h5>Asal</h5>
-            <input type="text" name="asalPetani" />
-        </div>
-        <div class="content">
-            <h5>Foto</h5>
-            <input type="file" name="gambarPetani" accept="image/*">
+            <h5>Bahan</h5>
+            <input type="text" name="bahan" />
         </div>
         <div class="content">
             <button id="save" type="submit">Simpan</button>

@@ -8,10 +8,7 @@
 
 require 'functions.php';
 $petani = query("SELECT *
-FROM detail_resep
-JOIN bahan ON detail_resep.id_bahan = bahan.id_bahan
-JOIN resep ON detail_resep.id_resep = resep.id_resep;
-;");
+FROM resep;");
 
 // ketika tombol cari diklik
 if (isset($_POST['cari'])) {
@@ -38,10 +35,12 @@ if (isset($_POST['cari'])) {
 <div class="judul">
 <h2>Resep<span>Kopi</span></h2>
 </div>
-<div class="add">
-  <button class="tambah" onclick="addRow()">Tambah</button>
-  <input type="text" name="keyword" style="margin-left: 70px;" size="40" placeholder="Cari dengan Nama atau Kode Pesanan" autocomplete="off" autofocus class="keyword" id="search">
-  <button type="submit" name="cari" class="tombol-cari">Cari!</button>
+<div class="add" >
+  <a href="tambah_resep.php"><button class="tambah">Tambah</button></a>
+  <form method="post" action="">
+      <input class="inputari" type="text" name="keyword" size="40" placeholder="Cari dengan Nama atau Kode Pesanan" autocomplete="off" autofocus class="keyword" id="search">
+      <button type="submit" name="cari" class="tombol-cari">Cari!</button>
+  </form>
 </div>
 
 <table id="data-table">
@@ -69,13 +68,16 @@ if (isset($_POST['cari'])) {
                   <td><?= $i++; ?></td>
                   <!-- <td><img src="img/<?= $p['gambar_kopi']; ?>" width="60"></td> -->
                   <td><?= $p['nama_resep']; ?></td>
-                  <td><?= $p['nama_bahan']; ?></td>   
+                  <td><?= $p['bahan']; ?></td>   
                   <td><?= $p['cara']; ?></td>
                   <td class="aksi">
-                  <button class="edit-button" onclick="editRow(1)">Edit</button>
-                  <a class="delete-button" href="hapus_resep.php?id=<?= $p['id_detail_resep']; ?>">Hapus</an>
-                      <!-- <a href="detail.php?id=<?= $p['id']; ?>">lihat detail</a> -->
+                  <a href="ubah_resep.php?id=<?= $p['id_resep']; ?>"><button class="edit-button">Edit</button></a>
+                  <a href="hapus_resep.php?id=<?= $p['id_resep']; ?>"><button class="delete-button">Hapus</button></a>
                   </td>
+                  <!-- <td class="aksi">
+                  <button class="edit-button" onclick="editRow(1)">Edit</button>
+                  <a class="delete-button" href="hapus_resep.php?id=<?= $p['id_resep']; ?>">Hapus</an>
+                  </td> -->
             </tr>
         <?php endforeach; ?>
   </tbody>

@@ -56,17 +56,19 @@ body {
 table {
     margin: auto;
     width: 80%;
+    border-collapse: collapse;
 }
 
 th, td {
     font-family: "Poppins";
-    border: 1px solid #ddd;
+    border: 2px solid #ddd;
     padding: 12px; /* Menambahkan padding agar lebih mudah dibaca */
 }
 
 td {
     font-size: 1rem;
     color: #fff;
+    border: 2px solid white;
 }
 
 th {

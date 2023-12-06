@@ -1,13 +1,7 @@
 <?php
-// session_start();
-
-// if (!isset($_SESSION['login'])) {
-//      header("Location: login.php");
-//      exit;
-// }
 
 require 'functions.php';
-$petani = query("SELECT * FROM petani inner join kopi on petani.id_kopi=kopi.id_kopi;");
+$petani = query("SELECT * FROM petani;");
 
 // ketika tombol cari diklik
 if (isset($_POST['cari'])) {
@@ -33,19 +27,21 @@ if (isset($_POST['cari'])) {
 <div class="judul">
 <h2>Data<span>Petani</span></h2>
 </div>
-<form class="add" method="post" action="">
-    <button class="tambah" onclick="addRow()">Tambah</button>
-    <input class="inputari" type="text" name="keyword" size="40" placeholder="Cari dengan Nama atau Kode Pesanan" autocomplete="off" autofocus class="keyword" id="search">
-    <button type="submit" name="cari" class="tombol-cari">Cari!</button>
-</form>
+<div class="add" >
+  <a href="tambah_petani.php"><button class="tambah">Tambah</button></a>
+  <form method="post" action="">
+      <input class="inputari" type="text" name="keyword" size="40" placeholder="Cari dengan Nama atau Kode Pesanan" autocomplete="off" autofocus class="keyword" id="search">
+      <button type="submit" name="cari" class="tombol-cari">Cari!</button>
+  </form>
+</div>
 <table id="data-table">
   <thead>
     <tr>
       <th>Nomor</th>
+      <th>Foto</th>
       <th>Nama</th>
       <th>Nomor Telepon</th>
       <th>Asal</th>
-      <th>Jenis Kopi</th>
       <th>Aksi</th>
     </tr>
   </thead>
@@ -63,23 +59,21 @@ if (isset($_POST['cari'])) {
         
             <tr>
                   <td><?= $i++; ?></td>
-                  <!-- <td><img src="img/<?= $p['gambar']; ?>" width="60"></td> -->
+                  <td><img src="img/<?= $p['gambar_petani']; ?>" width="60"></td>
                   <td><?= $p['nama_petani']; ?></td>
                   <td><?= $p['no_hp']; ?></td>
                   <td><?= $p['asal']; ?></td>
-                  <td><?= $p['nama_kopi']; ?></td>
-                  <td>
-                  <button class="edit-button" onclick="editRow(1)">Edit</button>
-                  <a class="delete-button" href="hapus_petani.php?id=<?= $p['id_petani']; ?>">Hapus</a>
-                  <!-- <button class="delete-button" onclick="deleteRow(1)">Hapus</button> -->
-                   
+                    
+                  <td class="aksi">
+                  <a href="ubah_petani.php?id=<?= $p['id_petani']; ?>"><button class="edit-button">Edit</button></a>
+                  <a href="hapus_petani.php?id=<?= $p['id_petani']; ?>"><button class="delete-button">Hapus</button></a>
                   </td>
             </tr>
         <?php endforeach; ?>
   </tbody>
 </table>
 
-<script src="script.js"></script>
+<!-- <script src="script.js"></script> -->
 
 </body>
 </html>

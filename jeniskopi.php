@@ -33,10 +33,12 @@ if (isset($_POST['cari'])) {
 <div class="judul">
 <h2>Jenis <span>Kopi</span></h2>
 </div>  
-<div class="add">
-    <button class="tambah" onclick="addRow()">Tambah</button>
-    <input type="text" name="keyword" size="40" placeholder="Cari dengan Nama atau Kode Pesanan" autocomplete="off" autofocus class="keyword" id="search">
-    <button type="submit" name="cari" class="tombol-cari">Cari!</button>
+<div class="add" >
+  <a href="tambah_kopi.php"><button class="tambah">Tambah</button></a>
+  <form method="post" action="">
+      <input class="inputari" type="text" name="keyword" size="40" placeholder="Cari dengan Nama atau Kode Pesanan" autocomplete="off" autofocus class="keyword" id="search">
+      <button type="submit" name="cari" class="tombol-cari">Cari!</button>
+  </form>
 </div>
 <table id="data-table">
   <thead>
@@ -67,9 +69,13 @@ if (isset($_POST['cari'])) {
                   <td><?= $p['asal']; ?></td>
                   <td><?= $p['deskripsi']; ?></td>
                   <td class="aksi">
+                  <a href="ubah_jenis.php?id=<?= $p['id_kopi']; ?>"><button class="edit-button">Edit</button></a>
+                  <a href="hapus_jenis.php?id=<?= $p['id_kopi']; ?>"><button class="delete-button">Hapus</button></a>
+                  </td>
+                  <!-- <td class="aksi">
                   <button class="edit-button" onclick="editRow(1)">Edit</button>
                     <a class="delete-button" href="hapus_jenis.php?id=<?= $p['id_kopi']; ?>">Hapus</a>
-                  </td>
+                  </td> -->
             </tr>
         <?php endforeach; ?>
   </tbody>
