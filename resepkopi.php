@@ -23,10 +23,10 @@ if (isset($_POST['cari'])) {
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Data Kopi</title>
   <link rel="stylesheet" href="resepkopi.css">
-  <!-- Feather Icon -->
-  <!-- <script src="https://unpkg.com/feather-icons"></script> -->
- <!-- Feather Icon -->
  <script src="https://unpkg.com/feather-icons"></script>
+ 
+
+ 
 </head>
 <body>
 <div class="kembali">
@@ -37,10 +37,11 @@ if (isset($_POST['cari'])) {
 </div>
 <div class="add" >
   <a href="tambah_resep.php"><button class="tambah">Tambah</button></a>
-  <form method="post" action="">
-      <input class="inputari" type="text" name="keyword" size="40" placeholder="Cari dengan Nama atau Kode Pesanan" autocomplete="off" autofocus class="keyword" id="search">
-      <button type="submit" name="cari" class="tombol-cari">Cari!</button>
-  </form>
+  <form id="search-form" method="post" action="">
+    <input class="inputari" type="text" name="keyword" size="40" placeholder="Cari dengan Nama atau Kode Pesanan" autocomplete="off" autofocus class="keyword" id="search">
+    <button type="submit" name="cari" class="tombol-cari">Cari!</button>
+</form>
+
 </div>
 
 <table id="data-table">
@@ -74,16 +75,30 @@ if (isset($_POST['cari'])) {
                   <a href="ubah_resep.php?id=<?= $p['id_resep']; ?>"><button class="edit-button">Edit</button></a>
                   <a href="hapus_resep.php?id=<?= $p['id_resep']; ?>"><button class="delete-button">Hapus</button></a>
                   </td>
-                  <!-- <td class="aksi">
-                  <button class="edit-button" onclick="editRow(1)">Edit</button>
-                  <a class="delete-button" href="hapus_resep.php?id=<?= $p['id_resep']; ?>">Hapus</an>
-                  </td> -->
             </tr>
         <?php endforeach; ?>
   </tbody>
 </table>
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 
-<script src="script.js"></script>
+ <script>
+    $(document).ready(function () {
+        // Submit form using Ajax
+        $('#search-form').submit(function (e) {
+            e.preventDefault(); // Prevent normal form submission
 
+            var keyword = $('#search').val();
+
+            $.ajax({
+                type: 'POST',
+                url: 'search_resep.php', // Sesuaikan dengan file PHP yang menangani pencarian
+                data: {keyword: keyword},
+                success: function (data) {
+                    $('#row-contain').html(data);
+                }
+            });
+        });
+    });
+</script>
 </body>
 </html>

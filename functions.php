@@ -271,9 +271,9 @@ function registrasi($data)
 
 
 
-function cari($data){
-  $keyword = htmlspecialchars($data['keyword']);
+// function cari($data){
+//   $keyword = htmlspecialchars($data['keyword']);
 
-  $petani = queryAll("SELECT * FROM petani inner join kopi on petani.id_kopi=kopi.id_kopi where nama_petani LIKE '%$keyword%'");
-  return $petani;
-}
+//   $petani = queryAll("SELECT * FROM petani inner join kopi on petani.id_kopi=kopi.id_kopi where nama_petani LIKE '%$keyword%'");
+//   return $petani;
+// }

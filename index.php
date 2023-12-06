@@ -1,3 +1,39 @@
+<?php 
+    require 'functions.php';
+    $sql = "SELECT COUNT(*) as total FROM petani";
+    $result = $conn->query($sql);
+
+    // Check if the query was successful
+    if ($result) {
+        $row = $result->fetch_assoc();
+        $totalPetani = $row['total'];
+    } else {
+        $totalPetani = 0; // Set to 0 if there is an error
+    }
+    $sql2 = "SELECT COUNT(*) as total FROM kopi";
+    $result = $conn->query($sql2);
+
+    // Check if the query was successful
+    if ($result) {
+        $row = $result->fetch_assoc();
+        $totalKopi = $row['total'];
+    } else {
+        $totalKopi = 0; // Set to 0 if there is an error
+    }
+    $sql3 = "SELECT COUNT(*) as total FROM resep";
+    $result = $conn->query($sql3);
+
+    // Check if the query was successful
+    if ($result) {
+        $row = $result->fetch_assoc();
+        $totalResep = $row['total'];
+    } else {
+        $totalResep = 0; // Set to 0 if there is an error
+    }
+
+    // Close the database connection
+    $conn->close();
+    ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
@@ -47,21 +83,21 @@
       <div class="card">
         <div class="box">
           <h1>Data Petani</h1>
-          <h2>100</h2>
+          <h2><?php echo $totalPetani; ?></h2>
           <h3>Petani</h3>
         </div>
       </div>
       <div class="card">
         <div class="box">
           <h1>Jenis Kopi</h1>
-          <h2>9</h2>
+          <h2><?php echo $totalKopi?></h2>
           <h3>Kopi</h3>
         </div>
       </div>
       <div class="card">
         <div class="box">
           <h1>Resep Kopi</h1>
-          <h2>6</h2>
+          <h2><?php echo $totalResep; ?></h2>
           <h3>Resep Olahan</h3>
         </div>
       </div>

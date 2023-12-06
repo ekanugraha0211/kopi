@@ -22,9 +22,28 @@ if (isset($_POST['cari'])) {
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Data Kopi</title>
   <link rel="stylesheet" href="jeniskopi.css">
-  
-  </style>
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
  <script src="https://unpkg.com/feather-icons"></script>
+<script>
+    $(document).ready(function () {
+        // Submit form using Ajax
+        $('#search-form').submit(function (e) {
+            e.preventDefault(); // Prevent normal form submission
+
+            var keyword = $('#search').val();
+
+            $.ajax({
+                type: 'POST',
+                url: 'search_kopi.php', // Sesuaikan dengan file PHP yang menangani pencarian
+                data: {keyword: keyword},
+                success: function (data) {
+                    $('#row-contain').html(data);
+                }
+            });
+        });
+    });
+</script>
+
 </head>
 <body>
 <div class="kembali">
@@ -35,10 +54,11 @@ if (isset($_POST['cari'])) {
 </div>  
 <div class="add" >
   <a href="tambah_kopi.php"><button class="tambah">Tambah</button></a>
-  <form method="post" action="">
-      <input class="inputari" type="text" name="keyword" size="40" placeholder="Cari dengan Nama atau Kode Pesanan" autocomplete="off" autofocus class="keyword" id="search">
-      <button type="submit" name="cari" class="tombol-cari">Cari!</button>
-  </form>
+  <form method="post" action="" id="search-form">
+    <input class="inputari" type="text" name="keyword" size="40" placeholder="Cari dengan Nama atau Kode Pesanan" autocomplete="off" autofocus class="keyword" id="search">
+    <button type="submit" class="tombol-cari">Cari!</button>
+</form>
+
 </div>
 <table id="data-table">
   <thead>
@@ -80,8 +100,5 @@ if (isset($_POST['cari'])) {
         <?php endforeach; ?>
   </tbody>
 </table>
-
-<script src="script.js"></script>
-
 </body>
 </html>
